@@ -1,8 +1,35 @@
 'use client';
 import { motion, Variants } from 'framer-motion';
-import { Mail, Send, ExternalLink } from 'lucide-react';
+import { Mail, Send, ExternalLink, Phone, MapPin } from 'lucide-react';
 
 const Contact = () => {
+  const contactInfo = [
+    {
+      label: 'Email',
+      value: 'pbjones2@gmail.com',
+      href: 'mailto:pbjones2@gmail.com',
+      icon: <Mail size={24} />
+    },
+    {
+      label: 'Phone',
+      value: '334 322 1533',
+      href: 'tel:3343221533',
+      icon: <Phone size={24} />
+    },
+    {
+      label: 'Address',
+      value: '555 county road 33, Prattville AL .36067',
+      href: 'https://maps.google.com/?q=555+county+road+33,+Prattville+AL+.36067',
+      icon: <MapPin size={24} />
+    },
+    {
+      label: 'LinkedIn',
+      value: 'Linkedin Profile',
+      href: 'https://www.linkedin.com/in/steven-jones-2b089a126/',
+      icon: <ExternalLink size={24} />
+    }
+  ];
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -52,38 +79,25 @@ const Contact = () => {
                   Open for strategic advisory roles, executive leadership opportunities, and collaborations in AI and cybersecurity.
                 </p>
 
-                <div className="space-y-8">
-                  <motion.div whileHover={{ x: 10 }} className="flex items-center gap-5 group cursor-pointer">
-                    <div className="p-4 bg-white/15 rounded-2xl group-hover:bg-white/20 transition-colors">
-                      <Mail size={24} />
-                    </div>
-                    <div>
-                      <p className="text-blue-200 text-xs font-bold uppercase tracking-widest mb-1">Email</p>
-                      <p className="font-bold text-lg md:text-xl">steven.jones@example.com</p>
-                    </div>
-                  </motion.div>
-                  <motion.div whileHover={{ x: 10 }} className="flex items-center gap-5 group cursor-pointer">
-                    <div className="p-4 bg-white/15 rounded-2xl group-hover:bg-white/20 transition-colors">
-                    </div>
-                    <div>
-                      <p className="text-blue-200 text-xs font-bold uppercase tracking-widest mb-1">LinkedIn</p>
-                      <a 
-                        href="https://www.linkedin.com/in/steven-jones-2b089a126/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="font-bold text-lg md:text-xl flex items-center gap-2 hover:underline decoration-2 underline-offset-4"
-                      >
-                        Linkedin Profile <ExternalLink size={18} />
+                <div className="space-y-6">
+                  {contactInfo.map((item, idx) => (
+                    <motion.div key={idx} whileHover={{ x: 10 }} className="flex items-center gap-5 group cursor-pointer">
+                      <div className="p-4 bg-white/15 rounded-2xl group-hover:bg-white/20 transition-colors">
+                        {item.icon}
+                      </div>
+                      <a href={item.href} target={item.label === 'LinkedIn' ? "_blank" : undefined} rel={item.label === 'LinkedIn' ? "noopener noreferrer" : undefined}>
+                        <p className="text-blue-200 text-xs font-bold uppercase tracking-widest mb-1">{item.label}</p>
+                        <p className="font-bold text-lg md:text-xl group-hover:underline decoration-2 underline-offset-4">{item.value}</p>
                       </a>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
               <div className="mt-16 relative z-10">
                 <div className="flex items-center gap-3 text-blue-100 font-bold tracking-wide text-sm bg-black/10 w-fit px-4 py-2 rounded-full border border-white/10">
                   <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  Birmingham, Alabama
+                  Prattville, Alabama
                 </div>
               </div>
             </motion.div>

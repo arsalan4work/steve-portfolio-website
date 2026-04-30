@@ -43,7 +43,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[100svh] flex items-center pt-28 pb-20 lg:pt-20 lg:pb-0 overflow-hidden bg-black">
+    <section className="relative min-h-svh flex items-center pt-28 pb-20 lg:pt-20 lg:pb-0 overflow-hidden bg-black">
       {/* Abstract Background Elements */}
       <div className="absolute top-1/4 -left-20 w-72 h-72 lg:w-96 lg:h-96 bg-blue-600/20 rounded-full blur-[100px] lg:blur-[120px] animate-pulse" />
       <div className="absolute bottom-1/4 -right-20 w-72 h-72 lg:w-96 lg:h-96 bg-purple-600/20 rounded-full blur-[100px] lg:blur-[120px] animate-pulse delay-1000" />
@@ -113,29 +113,42 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1.2, type: 'spring', bounce: 0.4 }}
-            className="flex-1 relative order-1 lg:order-2"
+            className="flex-1 relative order-1 lg:order-2 flex justify-center items-center"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[500px] lg:h-[500px] mx-auto">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] xl:w-[500px] xl:h-[500px]">
               {/* Animated Rings */}
               <div className="absolute inset-[-20px] border-2 border-blue-500/20 rounded-full animate-[spin_15s_linear_infinite]" />
               <div className="absolute inset-[-10px] border border-purple-500/15 rounded-full animate-[spin_20s_linear_infinite_reverse]" />
               
-              <div className="absolute inset-0 overflow-hidden rounded-[4rem] lg:rounded-[6rem] border-4 border-white/5 shadow-2xl relative z-10 bg-gray-900">
+              {/* Image Container — relative so fill works, overflow-hidden to clip */}
+              <div className="absolute inset-0 overflow-hidden rounded-full border-4 border-white/5 shadow-2xl z-10 bg-gray-900">
                 <Image 
-                  src="https://media.licdn.com/dms/image/v2/D4E03AQEAFhDi0bf3RQ/profile-displayphoto-crop_800_800/B4EZy5Sey1HgAM-/0/1772635156276?e=1779321600&v=beta&t=1IVVH7U_cMEKAB80sIAq5vqN9hrPmPRk6urz6mukCZI" 
-                  alt="Steven Jones" 
-                  width={800}
-                  height={800}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
+                  src="/steve_image.png" 
+                  alt="Steven Jones"
+                  fill
+                  sizes="(max-width: 768px) 288px, (max-width: 1024px) 384px, (max-width: 1280px) 450px, 500px"
+                  className="object-cover object-[center_15%] grayscale hover:grayscale-0 transition-all duration-1000"
                   priority
                 />
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Decorative elements */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-600 rounded-3xl -z-10 blur-2xl opacity-50" />
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-purple-600 rounded-full -z-10 blur-2xl opacity-50" />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600 rounded-3xl -z-10 blur-3xl opacity-30" />
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-purple-600 rounded-full -z-10 blur-3xl opacity-30" />
+              
+              {/* Floating Badge */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -right-4 top-1/4 z-20 bg-gray-900/90 backdrop-blur-md border border-white/10 p-4 rounded-2xl hidden md:block"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-xs font-bold text-white uppercase tracking-tighter">Available for Advisory</span>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
