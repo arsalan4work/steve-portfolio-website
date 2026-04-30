@@ -1,6 +1,4 @@
 'use client';
-
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
@@ -69,57 +67,90 @@ const Experience = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 80,
+        damping: 15,
+      },
+    },
+  };
+
   return (
-    <section id="experience" className="py-24 bg-black">
+    <section id="experience" className="py-24 bg-black overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 lg:mb-24"
         >
-          <h2 className="text-4xl font-bold text-white mb-4">Professional <span className="text-blue-500">Journey</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">A progression from deep technical engineering to enterprise scale AI leadership.</p>
+          <div className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-blue-500 uppercase bg-blue-500/10 rounded-lg">
+            My Career Path
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">Professional <span className="text-blue-500">Journey</span></h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">A progression from deep technical engineering to enterprise scale AI leadership.</p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-4xl mx-auto space-y-4"
+        >
           {experiences.map((exp, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="relative pl-8 pb-12 border-l border-gray-800 last:pb-0"
+              variants={itemVariants}
+              className="relative pl-6 md:pl-10 pb-12 border-l border-white/10 last:pb-0 group"
             >
               {/* Timeline Dot */}
-              <div className="absolute left-[-9px] top-0 w-4 h-4 bg-blue-600 rounded-full border-4 border-black" />
+              <div className="absolute left-[-9px] top-0 w-4 h-4 bg-gray-900 rounded-full border-2 border-white/20 group-hover:border-blue-500 group-hover:bg-blue-500 transition-all duration-300" />
               
-              <div className="bg-gray-900/50 border border-gray-800 rounded-3xl p-8 hover:bg-gray-900 transition-all">
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+              <div className="bg-gray-900/40 border border-white/5 rounded-[2rem] p-6 md:p-10 hover:bg-gray-900/60 hover:border-blue-500/20 transition-all duration-500 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 blur-3xl -mr-16 -mt-16 group-hover:bg-blue-600/10 transition-colors" />
+                
+                <div className="flex flex-col md:flex-row md:items-start justify-between mb-8 gap-4 relative z-10">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-1">{exp.title}</h3>
-                    <div className="flex items-center gap-2 text-blue-400 font-medium">
-                      <Briefcase size={16} />
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{exp.title}</h3>
+                    <div className="flex items-center gap-2 text-gray-400 font-semibold text-sm md:text-base">
+                      <div className="p-1.5 bg-blue-500/10 rounded-lg">
+                        <Briefcase size={14} className="text-blue-500" />
+                      </div>
                       <span>{exp.company}</span>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2 text-sm text-gray-500">
+                  <div className="flex flex-col gap-2.5 text-xs md:text-sm text-gray-500 font-medium">
                     <div className="flex items-center gap-2">
-                      <Calendar size={14} />
+                      <Calendar size={14} className="text-blue-500/60" />
                       <span>{exp.period}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <MapPin size={14} />
+                      <MapPin size={14} className="text-blue-500/60" />
                       <span>{exp.location}</span>
                     </div>
                   </div>
                 </div>
 
-                <ul className="space-y-3">
+                <ul className="space-y-4 relative z-10">
                   {exp.bullets.map((bullet, j) => (
-                    <li key={j} className="flex items-start gap-3 text-gray-400">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                    <li key={j} className="flex items-start gap-3.5 text-gray-400 text-sm md:text-base leading-relaxed">
+                      <div className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500/40 group-hover:bg-blue-500 transition-colors flex-shrink-0" />
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -127,7 +158,7 @@ const Experience = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
