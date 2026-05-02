@@ -123,7 +123,7 @@ const Hero = () => {
               {/* Image Container — relative so fill works, overflow-hidden to clip */}
               <div className="absolute inset-0 overflow-hidden rounded-full border-4 border-white/5 shadow-2xl z-10 bg-gray-900">
                 <Image 
-                  src="/steve_image.png" 
+                  src="/steve_image.jpg" 
                   alt="Steven Jones"
                   fill
                   sizes="(max-width: 768px) 288px, (max-width: 1024px) 384px, (max-width: 1280px) 450px, 500px"
