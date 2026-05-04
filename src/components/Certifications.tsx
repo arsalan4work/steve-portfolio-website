@@ -20,11 +20,11 @@ const Certifications = () => {
       certs: [
         { name: 'Certified Ethical Hacker (CEH)', issuer: 'EC-Council' },
         { name: 'Certified Network Defense Architect (CNDA)', issuer: 'EC-Council' },
+        { name: 'Certified Information Security Manager (CISM)', issuer: 'ISACA' },
         { name: 'Computer Hacking Forensic Investigator (CHFI)', issuer: 'EC-Council' },
         { name: 'ISO/IEC 27002 – Information Security', issuer: 'Exin' },
         { name: 'ISO/IEC 20000 – IT Service Management', issuer: 'Exin' },
         { name: 'ITIL v3', issuer: 'Exin' },
-        { name: 'Certified Information Security Manager (CISM)', issuer: 'ISACA' }
       ]
     },
     {
