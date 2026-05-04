@@ -6,7 +6,7 @@ const Experience = () => {
   const experiences = [
     {
       title: 'Chief Artificial Intelligence Officer / AI Strategist',
-      company: 'Mighty Muscles',
+      company: '(Freelance)',
       period: 'Dec 2024 - Present',
       location: 'Birmingham, Alabama',
       bullets: [
@@ -19,7 +19,7 @@ const Experience = () => {
     },
     {
       title: 'Chief Artificial Intelligence Officer',
-      company: 'Freelance',
+      company: '(Freelance)',
       period: 'Dec 2020 - Present',
       location: 'Remote',
       bullets: [
@@ -31,7 +31,7 @@ const Experience = () => {
     },
     {
       title: 'Chief Artificial Intelligence Officer',
-      company: 'ATS Technologies',
+      company: '(ATS Technologies)',
       period: 'Dec 2021 - Dec 2024',
       location: 'Montgomery, Alabama',
       bullets: [
@@ -43,7 +43,7 @@ const Experience = () => {
     },
     {
       title: 'Artificial Intelligence/Splunk Administrator',
-      company: 'Maxwell Air Force Base Gunter Annex',
+      company: '(Maxwell Air Force Base Gunter Annex)',
       period: 'Dec 2019 - Dec 2021',
       location: 'Montgomery, Alabama',
       bullets: [
@@ -55,7 +55,7 @@ const Experience = () => {
     },
     {
       title: 'Senior Unix Administrator',
-      company: '22nd Century Tech - Maxwell Gunter Annex',
+      company: '(22nd Century Tech - Maxwell Gunter Annex)',
       period: 'Dec 2017 - Dec 2019',
       location: 'Montgomery, Alabama',
       bullets: [
