@@ -53,8 +53,8 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 bg-black relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full -mr-64 -mt-64" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/5 blur-[120px] rounded-full -ml-64 -mb-64" />
+      <div className="absolute top-0 right-0 w-125 h-125 bg-blue-600/5 blur-[120px] rounded-full -mr-64 -mt-64" />
+      <div className="absolute bottom-0 left-0 w-125 h-125 bg-purple-600/5 blur-[120px] rounded-full -ml-64 -mb-64" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 

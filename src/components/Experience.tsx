@@ -120,9 +120,9 @@ const Experience = () => {
               className="relative pl-6 md:pl-10 pb-12 border-l border-white/10 last:pb-0 group"
             >
               {/* Timeline Dot */}
-              <div className="absolute left-[-9px] top-0 w-4 h-4 bg-gray-900 rounded-full border-2 border-white/20 group-hover:border-blue-500 group-hover:bg-blue-500 transition-all duration-300" />
+              <div className="absolute -left-2.25 top-0 w-4 h-4 bg-gray-900 rounded-full border-2 border-white/20 group-hover:border-blue-500 group-hover:bg-blue-500 transition-all duration-300" />
               
-              <div className="bg-gray-900/40 border border-white/5 rounded-[2rem] p-6 md:p-10 hover:bg-gray-900/60 hover:border-blue-500/20 transition-all duration-500 relative overflow-hidden">
+              <div className="bg-gray-900/40 border border-white/5 rounded-4xl p-6 md:p-10 hover:bg-gray-900/60 hover:border-blue-500/20 transition-all duration-500 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 blur-3xl -mr-16 -mt-16 group-hover:bg-blue-600/10 transition-colors" />
                 
                 <div className="flex flex-col md:flex-row md:items-start justify-between mb-8 gap-4 relative z-10">
@@ -150,7 +150,7 @@ const Experience = () => {
                 <ul className="space-y-4 relative z-10">
                   {exp.bullets.map((bullet, j) => (
                     <li key={j} className="flex items-start gap-3.5 text-gray-400 text-sm md:text-base leading-relaxed">
-                      <div className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500/40 group-hover:bg-blue-500 transition-colors flex-shrink-0" />
+                      <div className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500/40 group-hover:bg-blue-500 transition-colors shrink-0" />
                       <span>{bullet}</span>
                     </li>
                   ))}
